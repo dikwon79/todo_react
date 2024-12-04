@@ -3,6 +3,30 @@ import { useRecoilState } from "recoil";
 import { categoryState, Categories, categoryStates } from "../atoms";
 import styled from "styled-components";
 
+const SelectWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-direction: row;
+  gap: 10px;
+
+  @media (max-width: 768px) {
+    flex-direction: column; /* 세로로 정렬 */
+    gap: 15px;
+  }
+`;
+
+const InputWrapper = styled.div`
+  display: flex;
+  gap: 10px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+  }
+`;
+
 const Select = styled.select`
   padding: 10px;
   font-size: 16px;
@@ -16,6 +40,10 @@ const Select = styled.select`
   &:focus {
     border-color: #74c0fc;
     box-shadow: 0 0 0 3px rgba(116, 192, 252, 0.5);
+  }
+
+  @media (max-width: 768px) {
+    width: 100%; /* 모바일에서는 전체 너비로 확장 */
   }
 `;
 
@@ -32,6 +60,11 @@ const Input = styled.input`
   &:focus {
     border-color: #74c0fc;
     box-shadow: 0 0 0 3px rgba(116, 192, 252, 0.5);
+  }
+
+  @media (max-width: 768px) {
+    width: 100%; /* 모바일에서 입력 필드 너비 확장 */
+    margin-right: 0;
   }
 `;
 
@@ -52,19 +85,10 @@ const Button = styled.button`
   &:active {
     background-color: #3c78b4;
   }
-`;
-const SelectWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-  flex-direction: row;
-  gap: 10px;
-`;
 
-const InputWrapper = styled.div`
-  display: flex;
-  gap: 10px;
+  @media (max-width: 768px) {
+    width: 100%; /* 모바일에서 버튼 너비 확장 */
+  }
 `;
 
 function CategorySelect() {
