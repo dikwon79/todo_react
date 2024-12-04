@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { Categories, categoryStates, IToDo, toDoState } from "../atoms";
 
 // 스타일 정의

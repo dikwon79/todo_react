@@ -1,14 +1,10 @@
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilValue } from "recoil";
 import CreateToDo from "./CreateToDo";
-import { Categories, categoryState, toDoSelector } from "../atoms";
+import { toDoSelector } from "../atoms";
 import ToDoman from "./ToDoman";
 import styled from "styled-components";
 import CategorySelect from "./category";
 
-const SelectWrapper = styled.div`
-  display: flex;
-  justify-content: center; /* 가로 방향 중앙 정렬 */
-`;
 const Header = styled.header`
   height: 10vh;
   display: flex;
@@ -39,25 +35,6 @@ const Select = styled.select`
   &:focus {
     border-color: #74c0fc;
     box-shadow: 0 0 0 3px rgba(116, 192, 252, 0.5);
-  }
-`;
-
-const ArrowIcon = styled.div`
-  position: relative;
-
-  select {
-    width: 100%;
-    padding-right: 35px;
-  }
-
-  &::after {
-    content: "▼";
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none;
-    color: #495057;
   }
 `;
 
