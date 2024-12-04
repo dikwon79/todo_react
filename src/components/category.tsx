@@ -58,13 +58,13 @@ const SelectWrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
-  flex-direction: row; /* 기존 설정 */
-  gap: 10px; /* 아이템 간 간격 추가 */
+  flex-direction: row;
+  gap: 10px;
 `;
 
 const InputWrapper = styled.div`
   display: flex;
-  gap: 10px; /* 아이템 간 간격 */
+  gap: 10px;
 `;
 
 function CategorySelect() {
