@@ -3,6 +3,7 @@ import CreateToDo from "./CreateToDo";
 import { Categories, categoryState, toDoSelector } from "../atoms";
 import ToDoman from "./ToDoman";
 import styled from "styled-components";
+import CategorySelect from "./category";
 
 const SelectWrapper = styled.div`
   display: flex;
@@ -63,27 +64,13 @@ const ArrowIcon = styled.div`
 function ToDoList() {
   //const [toDo, doing, done] = useRecoilValue(toDoSelector);
   const toDos = useRecoilValue(toDoSelector);
-  const [category, setCategory] = useRecoilState(categoryState);
 
-  const onInput = (event: React.FormEvent<HTMLSelectElement>) => {
-    //setCategory(event.currentTarget.value);
-    setCategory(event.currentTarget.value as any);
-  };
   return (
     <div>
       <Header>To Dos</Header>
       <hr />
 
-      <SelectWrapper>
-        <ArrowIcon>
-          <Select value={category} onInput={onInput}>
-            <option value={Categories.TO_DO}>To Do</option>
-            <option value={Categories.DOING}>Doing</option>
-            <option value={Categories.DONE}>Done</option>
-          </Select>
-        </ArrowIcon>
-      </SelectWrapper>
-
+      <CategorySelect />
       <CreateToDo />
 
       {toDos?.map((toDo) => (

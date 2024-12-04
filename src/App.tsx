@@ -1,5 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 import ToDoList from "./components/ToDoList";
+import { useRecoilState } from "recoil";
+import { categoryStates, toDoState } from "./atoms";
+import { useEffect } from "react";
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
@@ -75,6 +78,18 @@ a{
 }
 `;
 function App() {
+  const [toDos, setToDos] = useRecoilState(toDoState);
+  const [categories, setCategories] = useRecoilState(categoryStates);
+
+  useEffect(() => {
+    localStorage.setItem("toDoState", JSON.stringify(toDos));
+  }, [toDos]);
+
+  // categories 상태가 변경될 때 localStorage에 저장
+  useEffect(() => {
+    localStorage.setItem("categoryStates", JSON.stringify(categories));
+  }, [categories]);
+
   return (
     <>
       <GlobalStyle />
